@@ -24,8 +24,9 @@ export class HeyComponent implements OnInit, OnDestroy {
     const sub1 = this.app.count$
       .pipe(
         map(num => {
-          console.log("works" + num);
-          this.count1 = (num as number) * 13;
+          const p = (num as number) * 13;
+          console.log("works" + p);
+          this.count1 = p;
         })
       )
       .subscribe();
