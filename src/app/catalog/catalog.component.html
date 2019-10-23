@@ -1,3 +1,11 @@
-<p>
-catalog works!
-</p>
+<h2>
+	catalog works!
+</h2>
+<button (click)="add()">Add</button>
+<button (click)="show = !show">toggel</button>
+
+<div *ngIf="show">
+	<app-hey></app-hey>
+
+</div>
+

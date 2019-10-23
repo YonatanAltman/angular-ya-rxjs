@@ -8,10 +8,13 @@ import { HeaderComponent } from './header/header.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CartComponent } from './cart/cart.component';
 import { FooterComponent } from './footer/footer.component';
+import { AppService } from './app.service';
+import { HeyComponent } from './catalog/hey/hey.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, HeaderComponent, CatalogComponent, CartComponent, FooterComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [ AppComponent, HelloComponent, HeaderComponent, CatalogComponent, CartComponent, FooterComponent, HeyComponent ],
+  bootstrap:    [ AppComponent ],
+  providers: [AppService]
 })
 export class AppModule { }
