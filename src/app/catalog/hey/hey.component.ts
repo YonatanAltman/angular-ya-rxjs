@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { AppService } from "../../app.service";
 import { Subscription } from "rxjs";
-import { map } from "rxjs/operators";
+import { tap } from "rxjs/operators";
 
 @Component({
   selector: "app-hey",
@@ -15,21 +15,18 @@ export class HeyComponent implements OnInit, OnDestroy {
   constructor(private app: AppService) {
     const sub = this.app.count$
       .pipe(
-        map(num => {
+        tap(num => {
           console.log("works" + num);
           this.count = num as number;
         })
       )
       .subscribe();
     const sub1 = this.app.count$
-      .pipe(
-        map(num => {
+      .subscribe(num => {
           const p = (num as number) * 13;
           console.log("works" + p);
           this.count1 = p;
-        })
-      )
-      .subscribe();
+        });
     this.subscription.add(sub);
     this.subscription.add(sub1);
   }
